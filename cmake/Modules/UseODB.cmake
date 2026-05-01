@@ -148,7 +148,7 @@ function(odb_compile outvar)
 	file(MAKE_DIRECTORY "${ODB_COMPILE_OUTPUT_DIR}")
 
 	foreach(input ${PARAM_FILES})
-		get_filename_component(fname "${input}" NAME_WE)
+		file(RELATIVE_PATH fname ${ODB_COMPILE_OUTPUT_DIR} ${input})
 		set(outputs)
 
 		foreach(sfx ${ODB_COMPILE_FILE_SUFFIX})
